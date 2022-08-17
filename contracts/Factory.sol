@@ -4,11 +4,12 @@ import "./BaseCoin.sol";
 
 contract Factory {
     address private _owner;
+
     constructor() {
         _owner = msg.sender;
     }
 
-    function getOwner() external view returns (address) {
+    function getFactoryOwner() external view returns (address) {
         return _owner;
     }
 
@@ -25,7 +26,7 @@ contract Factory {
         string memory sampel_,
         uint256 totalSuppl_
     ) public returns (address) {
-        BaseCoin bc = new BaseCoin(totalSuppl_, sampel_, name_);
+        BaseCoin bc = new BaseCoin(msg.sender, totalSuppl_, sampel_, name_);
         return bc.getContract();
     }
 }

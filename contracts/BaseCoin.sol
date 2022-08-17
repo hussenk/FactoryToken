@@ -7,11 +7,12 @@ contract BaseCoin is ERC20 {
     address private _owner;
 
     constructor(
+        address sender,
         uint256 _initialSupply,
         string memory _name,
         string memory _sampel
     ) ERC20(_name, _sampel) {
-        _owner = msg.sender;
+        _owner = sender;
         _mint(_owner, _initialSupply);
     }
 

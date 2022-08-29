@@ -8,12 +8,12 @@ contract BaseCoin is ERC20 {
 
     constructor(
         address sender,
-        uint256 _initialSupply,
-        string memory _name,
-        string memory _sampel
-    ) ERC20(_name, _sampel) {
+        uint256 initialSupply_,
+        string memory name_,
+        string memory symbol_ 
+     )payable  ERC20(name_, symbol_ )   {
         _owner = sender;
-        _mint(_owner, _initialSupply);
+        _mint(_owner, initialSupply_);
     }
 
     function getOwner() external view returns (address) {

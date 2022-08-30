@@ -13,11 +13,11 @@ contract Factory {
         _factory = payable(address(this));
     }
 
-    // Function to receive Ether. msg.data must be empty
-    receive() external payable {}
+    // // Function to receive Ether. msg.data must be empty
+    // receive() external payable {}
 
-    // Fallback function is called when msg.data is not empty
-    fallback() external payable {}
+    // // Fallback function is called when msg.data is not empty
+    // fallback() external payable {}
 
     function getFactoryOwner() external view returns (address) {
         return _owner;
@@ -59,7 +59,7 @@ contract Factory {
     ) external payable returns (address) {
         require(msg.value >= _fee, "you need send more money");
         // _factory.transfer(msg.value);
-        payable(msg.sender).transfer(msg.value);
+        // payable(msg.sender).transfer(msg.value);
         BaseCoin bc = new BaseCoin(msg.sender, totalSuppl_, symbol_, name_);
         tokens.push(bc.getContract());
         return bc.getContract();
